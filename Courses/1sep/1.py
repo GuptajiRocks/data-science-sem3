@@ -5,7 +5,7 @@ df = pd.read_excel("Courses\\1sep\\sihx.xlsx")
 # print(df.iloc[131])
 
 # print(df.loc[df["Name3"] == "Eshit Saini"])
-print(df.loc[df["Team Id"] == 148])
+print(df.loc[df["Team Name"] == "Chilly Flicks" ])
 # print(df["Problem Statement ID"] == 1614)
 # print(df.iloc[233])
 # l = []
