@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 data = {  
 'Month': ['Jan', 'Jan', 'Jan', 'Feb', 'Feb', 'Feb', 'Mar', 'Mar', 'Mar', 'Apr', 'Apr', 'Apr', 'May', 'May', 'May', 'Jun', 
 'Jun', 'Jun', 'Jul', 'Jul', 'Jul', 'Aug', 'Aug', 'Aug', 'Sep', 'Sep', 'Sep', 'Oct', 'Oct', 'Oct', 'Nov', 'Nov', 'Nov', 'Dec', 
@@ -12,6 +13,9 @@ data = {
 
 df = pd.DataFrame(data)
 newdf = pd.pivot_table(df, index="Month",columns="Product", values="Sales", sort=False, aggfunc="sum")
-print(newdf)
+#print(newdf)
 
-print(newdf.transpose())
+#print(newdf.transpose())
+
+st.write("Hello World")
+st.write(newdf)
