@@ -1,6 +1,14 @@
 import seaborn as sns
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import streamlit as st
 
+data = np.random.rand(10,10)
+
+st.pyplot(sns.heatmap(data, cmap="coolwarm"))
+
+#st.write(ste)
 # Scatter plot used for correlation
 # Box plot used for outlier detection, spread and skewness of data
 #
