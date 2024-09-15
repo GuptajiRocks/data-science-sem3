@@ -1,10 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
+import google.generativeai as genai
 
-def process_text(text):
-    # Replace this with your actual text processing logic
-    result = text.upper()
-    label.config(text=result)
+genai.configure(api_key="AIzaSyDMhYAHLqk1AjmMUQ0Eby5ycLlNDM92x10")
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+def process_text():
+    x = str(entry.get())
+    response = model.generate_content(x)
+    label.configure(text=response.text)
 
 root = tk.Tk()
 root.title("Text Processing Dialog")
@@ -19,7 +23,7 @@ entry = ttk.Entry(frame, width=30)
 entry.pack(pady=10)
 
 # Create the button
-button = ttk.Button(frame, text="Process Text", command=lambda: process_text(entry.get()))
+button = ttk.Button(frame, text="Process Text", command=process_text)
 button.pack(pady=10)
 
 # Create the label for displaying output
