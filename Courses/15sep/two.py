@@ -29,8 +29,11 @@ frame.pack()
 entry = ttk.Entry(frame, width=30)
 entry.pack(pady=10)
 
-button = ttk.Button(frame, text="Process Text", command=process_text)
+button = ttk.Button(frame, text="Use Gen AI", command=process_text)
 button.pack(pady=10)
+
+cbtt = ttk.Button(frame, text="Close Window", command=root.destroy)
+cbtt.pack(pady=10)
 
 label = ttk.Label(frame, text="")
 label.pack(pady=10)
