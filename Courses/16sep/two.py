@@ -15,7 +15,7 @@ def process_text():
     response = model.generate_content(x)
     otpt = str(response.text)
     label.configure(text=response.text)
-    insert_query = f"INSERT INTO prompthistory VALUES(\"{x}\", \"{otpt}\");"
+    insert_query = f'INSERT INTO prompthistory VALUES(\'{x}\', \'{otpt}\');'
     cursor.execute(str(insert_query))
     connection.commit()
 
