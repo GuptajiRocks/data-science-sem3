@@ -2,12 +2,14 @@ import tkinter as tk
 from tkinter import ttk
 import google.generativeai as genai
 import mysql.connector as mp
+import numpy as np
 
-connection = mp.connect(host='localhost', database="pysqlone",user="root", password="root")
+connection = mp.connect(host="mysql-demo1-arihantguptaheadboy-1787.a.aivencloud.com", port=16535, database="promptone", user="avnadmin", password="AVNS_7LB6ypURzGIqCL9_mcn")
+#print(connection.is_connected())
+
 genai.configure(api_key="AIzaSyDMhYAHLqk1AjmMUQ0Eby5ycLlNDM92x10")
 model = genai.GenerativeModel("gemini-1.5-flash")
 cursor = connection.cursor()
-cursor.execute("USE pysqlone;")
 
 
 def process_text():
@@ -15,8 +17,9 @@ def process_text():
     response = model.generate_content(x)
     otpt = str(response.text)
     label.configure(text=response.text)
-    insert_query = f'INSERT INTO prompthistory VALUES(\'{x}\', \'{otpt}\');'
-    cursor.execute(str(insert_query))
+    tid = np.random.randint(1, 15000)
+    insert_query = f"INSERT INTO pmthist(PID, Prompt, Output) VALUES(%s, %s, %s);"
+    cursor.execute(insert_query, (tid, x, otpt))
     connection.commit()
 
 root = tk.Tk()
