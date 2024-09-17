@@ -4,7 +4,7 @@ import google.generativeai as genai
 import mysql.connector as mp
 import numpy as np
 
-connection = mp.connect(host="mysql-demo1-arihantguptaheadboy-1787.a.aivencloud.com", port=16535, database="promptone", user="avnadmin", password="AVNS_7LB6ypURzGIqCL9_mcn")
+connection = mp.connect(host="mysql-demo1-arihantguptaheadboy-1787.a.aivencloud.com", port=16535, database="promptone", user="avnadmin", password="AVNS_rVuNcdyp8SLJTJP-r01")
 #print(connection.is_connected())
 
 genai.configure(api_key="AIzaSyDMhYAHLqk1AjmMUQ0Eby5ycLlNDM92x10")
