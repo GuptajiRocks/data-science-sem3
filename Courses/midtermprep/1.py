@@ -12,7 +12,27 @@ def groups():
     print(newdf)
 
 def strings():
-    x = "Arihant"
-    print(x[-1])
+    txt = ",,,,,rrttgg.....banana....rrr"
+    #x = "arihant"
+    x = txt.strip(",.grt")
+    print(x)
 
-strings()
+def strings2():
+    txt = "arihant"
+    new_txt = txt.strip('at')
+    text = "abcdeabc"
+    stripped_text = text.strip('a')
+    print(stripped_text)
+    print(new_txt)
+
+def replace1():
+    txt = "abcdeabc"
+    new = txt.replace("a", "").replace("b", "")
+    print(new)
+
+def strings3():
+    txt = "####Hello,World!###"
+    res = txt.strip('#')
+    print(res)
+strings3()
+#replace1()
