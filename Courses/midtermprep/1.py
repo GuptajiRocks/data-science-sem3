@@ -34,5 +34,8 @@ def strings3():
     txt = "####Hello,World!###"
     res = txt.strip('#')
     print(res)
+
+
+
 strings3()
 #replace1()
