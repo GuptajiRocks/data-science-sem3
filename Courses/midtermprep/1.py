@@ -6,4 +6,13 @@ df = pd.DataFrame(data)
 
 # dictionary database when given, always convert to row column form, asaan rahega
 
-print(df.sort_values("A"))
+#print(df.sort_values("A"))
+def groups():
+    newdf = df.groupby("A")
+    print(newdf)
+
+def strings():
+    x = "Arihant"
+    print(x[-1])
+
+strings()
