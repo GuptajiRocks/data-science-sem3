@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transfer Money</title>
+</head>
+<body>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/transfer">
+        <input type="text" name="receiver" placeholder="Receiver's Username">
+        <input type="number" name="amount" placeholder="Amount">
+        <button type="submit">Transfer</button>
+    </form>
+</body>
+</html>
