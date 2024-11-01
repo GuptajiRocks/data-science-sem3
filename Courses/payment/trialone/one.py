@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 from waitress import serve
+# import mysql.connector as mc
+from msq import insertMoney
 
 app = Flask(__name__)
 
@@ -8,13 +10,20 @@ app = Flask(__name__)
 def ind():
     return render_template("index.html")
 
-@app.route("/acceptsend")
+@app.route("/acceptSend")
 def send_page():
     return render_template("sendMoney.html")
 
 @app.route("/checkBal")
 def all_page():
     return render_template("allBal.html")
+
+@app.route("/transfer")
+def tranfer_money():
+    sid = int(request.get("userID"))
+    rid = int(request.get("receiverID"))
+    amt = int(request.get("amount"))
+    
 
 
 if __name__ == "__main__":
