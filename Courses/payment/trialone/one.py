@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from waitress import serve
 import mysql.connector as mc
 from msq import *
-from flask_login import LoginManager
 
 app = Flask(__name__)
 
@@ -35,6 +34,16 @@ def tranfer_money():
 @app.route("/userBalport")
 def uidpage():
     return render_template("userBalform.html")
+
+@app.route("/userBaldisp")
+def guid():
+    sid = request.args.get("userId")
+    data = get_transac_by_id(sid)
+
+    if data == 0:
+        return render_template("error.html")
+    else:
+        return render_template("dispid.html", data=data, userIDname=sid)       
 
 
 if __name__ == "__main__":

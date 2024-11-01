@@ -45,19 +45,15 @@ def get_transac_by_id(sid):
     )
 
     mycursor = mydb.cursor()
+    l = [sid]
+    val = tuple(l)
+    
+    sql = "SELECT * FROM transactions WHERE senderID = %s"
 
     try:
-        sql = "SELECT * FROM transaction WHERE senderID = %s"
-        mycursor.execute(sql, sid)
-        mydb.commit()
+        mycursor.execute(sql, val)
+        myres = mycursor.fetchall()
         mydb.close()
+        return myres
     except:
         return 0
-
-    return 1
-
-
-
-
-
-
