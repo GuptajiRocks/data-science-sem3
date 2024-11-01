@@ -36,5 +36,28 @@ def get_data_from_db():
     mydb.close()
     return myresult
 
+def get_transac_by_id(sid):
+    mydb = mc.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="paymentsinfraone"
+    )
+
+    mycursor = mydb.cursor()
+
+    try:
+        sql = "SELECT * FROM transaction WHERE senderID = %s"
+        mycursor.execute(sql, sid)
+        mydb.commit()
+        mydb.close()
+    except:
+        return 0
+
+    return 1
+
+
+
+
 
 
