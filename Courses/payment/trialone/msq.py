@@ -22,4 +22,19 @@ def insertMoney(sid, rid, amt):
     mydb.close()
     return 1
 
+def get_data_from_db():
+    mydb = mc.connect(
+    host="localhost",
+    user="root",
+    password="root",
+    database="paymentsinfraone"
+    )
+
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM transactions")
+    myresult = mycursor.fetchall()
+    mydb.close()
+    return myresult
+
+
 

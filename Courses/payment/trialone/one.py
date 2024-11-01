@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from waitress import serve
 import mysql.connector as mc
-from msq import insertMoney
+from msq import insertMoney, get_data_from_db
 
 app = Flask(__name__)
 
@@ -16,7 +16,8 @@ def send_page():
 
 @app.route("/checkBal")
 def all_page():
-    return render_template("allBal.html")
+    data = get_data_from_db()
+    return render_template("allBal.html", data=data)
 
 @app.route("/transfer")
 def tranfer_money():
