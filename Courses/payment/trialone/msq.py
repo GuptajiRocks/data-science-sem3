@@ -12,9 +12,14 @@ mycursor = mydb.cursor()
 def insertMoney(sid, rid, amt):
     sql = "INSERT INTO transactions (senderID, recID, amount) VALUES(%s, %s, %s)"
     val = (sid, rid, amt)
-    mycursor.execute(sql, val)
+    try:
+        mycursor.execute(sql, val)
+    except:
+        return 0
 
     mydb.commit()
+    return 1
+
 
 mydb.close()
 

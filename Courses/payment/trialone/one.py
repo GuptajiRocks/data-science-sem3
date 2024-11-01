@@ -24,6 +24,11 @@ def tranfer_money():
     rid = int(request.get("receiverID"))
     amt = int(request.get("amount"))
     
+    res = insertMoney(sid, rid, amt)
+    if (res == 1):
+        return render_template("success.html")
+    else:
+        return render_template("error.html")
 
 
 if __name__ == "__main__":
