@@ -1,7 +1,7 @@
 import mysql.connector as mc
 
 
-def insertMoney(sid, rid, amt):
+def insertMoney(sid, rid, amt, tp):
     mydb = mc.connect(
     host="localhost",
     user="root",
@@ -11,8 +11,8 @@ def insertMoney(sid, rid, amt):
 
     mycursor = mydb.cursor()
     
-    sql = "INSERT INTO transactions (senderID, recID, amount) VALUES(%s, %s, %s)"
-    val = (sid, rid, amt)
+    sql = "INSERT INTO transactions (senderID, recID, amount, type) VALUES(%s, %s, %s, %s)"
+    val = (sid, rid, amt, tp)
     try:
         mycursor.execute(sql, val)
     except:
