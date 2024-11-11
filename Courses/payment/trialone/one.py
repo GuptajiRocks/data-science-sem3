@@ -52,8 +52,13 @@ def guid():
 
 @app.route("/getcredit")
 def credit_id():
-    pass   
+    sid = request.args.get("userId")
+    data = get_credit_by_id(sid)
 
+    if data == 0:
+        return render_template("error.html")
+    else:
+        return render_template("creditid.html", data=data, userIDname=sid)
 
 if __name__ == "__main__":
     serve(app, host="0.0.0.0", port=8000)
