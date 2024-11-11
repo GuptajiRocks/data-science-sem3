@@ -68,7 +68,8 @@ def get_credit_by_id(sid):
 
     mycursor = mydb.cursor()
     sql = 'SELECT type, senderID, SUM(amount) FROM transactions WHERE senderID = %s AND type="credit" GROUP BY type;'
-    val = sid
+    l = [sid]
+    val = tuple(l)
 
     try:
         mycursor.execute(sql, val)
