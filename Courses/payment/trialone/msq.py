@@ -57,3 +57,25 @@ def get_transac_by_id(sid):
         return myres
     except:
         return 0
+
+def get_credit_by_id(sid):
+    mydb = mc.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="paymentsinfraone"
+    )
+
+    mycursor = mydb.cursor()
+    sql = 'SELECT type, senderID, SUM(amount) FROM transactions WHERE senderID = %s AND type="credit" GROUP BY type;'
+    val = sid
+
+    try:
+        mycursor.execute(sql, val)
+        myres = mycursor.fetchall()
+        mydb.close()
+        return myres
+    except:
+        return 0
+
+

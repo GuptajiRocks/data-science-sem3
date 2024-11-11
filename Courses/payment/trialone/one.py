@@ -26,15 +26,19 @@ def tranfer_money():
     amt = int(request.args.get("amount"))
     tp = str(request.args.get("type"))
     
-    res = insertMoney(sid, rid, amt)
+    res = insertMoney(sid, rid, amt, tp)
     if (res == 1):
         return render_template("success.html")
     else:
         return render_template("error.html")
 
-@app.route("/userBalport")
+@app.route("/login")
 def uidpage():
-    return render_template("userBalform.html")
+    return render_template("login.html")
+
+@app.route("/authsuc")
+def uid_page():
+    return render_template("userbalform.html")
 
 @app.route("/userBaldisp")
 def guid():
@@ -44,7 +48,11 @@ def guid():
     if data == 0:
         return render_template("error.html")
     else:
-        return render_template("dispid.html", data=data, userIDname=sid)       
+        return render_template("dispid.html", data=data, userIDname=sid)    
+
+@app.route("/getcredit")
+def credit_id():
+    pass   
 
 
 if __name__ == "__main__":
