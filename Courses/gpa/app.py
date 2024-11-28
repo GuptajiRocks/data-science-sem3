@@ -44,7 +44,7 @@ def marks():
         else:
             based = based + int(cgl[i])*4
     
-    finalcg = based/credit_sum
+    finalcg = round(based/credit_sum,2)
     
     return render_template('output.html', data=subject_values, specific_data=finalcg)
 
