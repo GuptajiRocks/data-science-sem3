@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPA Calculator</title>
+    <link href="{{ url_for('static', filename='tailwind.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-4">GPA Calculator</h1>
+        <form method="POST">
+            <div class="mb-4">
+                <label for="subjects" class="block text-gray-700 text-sm font-bold mb-2">Select Subjects:</label>
+                <select id="subjects" name="subjects[]" multiple class="border border-gray-300 rounded-md p-2 w-full">
+                    {% for subject in subjects %}
+                        <option value="{{ subject['name'] }}">{{ subject['name']}} ({{ subject['credit'] }} credits)</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="grades" class="block text-gray-700 text-sm font-bold mb-2">Enter Grades:</label>
+                <input type="text" id="grades" name="grades[]" class="border border-gray-300 rounded-md p-2 w-full" placeholder="Enter grades separated by commas">
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Calculate GPA</button>
+        </form>
+    </div>
+</body>
+</html>
